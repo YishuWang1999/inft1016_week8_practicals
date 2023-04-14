@@ -20,7 +20,7 @@ _This is italic._
 
 **This text is bold.**
 
-**_This text is bold and italic! _**
+***This text is bold and italic!***
 
 # This is a large heading. 
 
