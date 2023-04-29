@@ -16,3 +16,25 @@
     --c-green   : #859900;
   }
   
+  body {
+    background-color: var(--c-background-color);
+    color: var(--base-font-color);
+  }
+
+  head {
+    background-color: var(--c-background-highlights);
+    color: var(--base-font-color);
+  }
+
+  footer {
+    background-color: var(--c-background-highlights);
+    color: var(--base-font-color);
+  }
+
+  a {
+    color: var(--c-violet); 
+  }
+
+  a :hover {
+    color: var(--c-orange);
+  }
