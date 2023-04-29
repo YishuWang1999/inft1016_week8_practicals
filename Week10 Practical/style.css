@@ -21,9 +21,12 @@
     color: var(--base-font-color);
   }
 
-  head {
+  header {
     background-color: var(--c-background-highlights);
-    color: var(--base-font-color);
+    color: var(--c-yellow);
+    text-align: center;
+    font-size: 150%;
+    
   }
 
   footer {
@@ -32,9 +35,52 @@
   }
 
   a {
-    color: var(--c-violet); 
+    color: var(--c-magenta); 
   }
 
-  a :hover {
+  a:hover {
     color: var(--c-orange);
   }
+
+  div {
+    border: 3px solid var(--c-cyan);
+  }
+  nav ul {                 
+    width: 100%;
+    text-align: center;
+  }
+  nav ul li {
+    list-style: none;
+    display: inline-block;
+    width: 20%;
+  }
+
+  aside {
+    color: var(--c-green);
+  }
+
+  aside a{
+    color: var(--c-red);
+  }
+
+  aside a:hover{
+    color: var(--c-blue);
+  }
+
+  html {
+    max-width: 800px;
+  }
+
+  article h2{
+    padding-top: 50px;
+    color: var(--c-yellow);
+  }
+
+  article h3{
+    padding-top: 50px;
+  }
+
+  p {
+    text-indent: 2em;
+  }
+  
