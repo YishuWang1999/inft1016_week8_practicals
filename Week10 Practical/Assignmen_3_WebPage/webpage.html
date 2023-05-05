@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title id="page-title">Birds Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+		window.onload = function() {
+			updateTitle();
+		};
+		/*const urlParams = new URLSearchParams(window.location.search);
+		const userName = urlParams.get('user_name');
+		const newTitle = "Hello, " + userName;*/
+		let theme = localStorage.getItem("theme_color");
+		if(theme != "dark"){
+			theme = "white";
+		}
+		function updateTitle() {
+		  const newurlParams = new URLSearchParams(window.location.search);
+		  const userName = newurlParams.get('user_name');
+		  let newTitle = "Birds Gallery";
+		  if (userName) {
+			newTitle = "Hello, " + userName;
+			localStorage.setItem("user_name", userName);
+		  } else {
+			let name2 = localStorage.getItem("user_name");
+			if (name2) {
+			  newTitle = "Hello, " + name2;
+			}
+		  }
+		  document.getElementById('page-title').innerHTML = newTitle;
+		}
+		
+		document.addEventListener("DOMContentLoaded", function() {
+		  const body = document.querySelector('body');
+		  const themeColor = localStorage.getItem("theme_color");
+		  if (themeColor == "dark") {
+			body.classList.add('dark');
+		  }
+		});
+		function changeImage(imageURL, imageDescription) {
+		  var image = document.getElementById("bird-image");
+		  var description = document.getElementById("bird-description");
+		  image.src = imageURL;
+		  description.innerHTML = imageDescription;
+		}
+		function toggleTheme() {
+		  const newTheme = (theme == "dark") ? "white" : "dark";
+		  localStorage.setItem("theme_color", newTheme);
+		  const body = document.querySelector('body');  
+		  body.classList.toggle('dark');
+		}
+		function applyName() {
+			//wait(100);
+			const newurlParams = new URLSearchParams(window.location.search);
+			const newUserName = newurlParams.get('user_name');
+			function applyName() {
+			  const newurlParams = new URLSearchParams(window.location.search);
+			  const newUserName = newurlParams.get('user_name');
+			  updateTitle();
+			}
+		//	const newUserName = document.getElementById('page-title').innerHTML
+		/*	localStorage.setItem("user_name", newUserName);
+			let newTitle = "Birds Gallery";
+			if(newUserName){
+			 newTitle = "Hello, " + newUserName;
+			}
+			document.getElementById('page-title').innerHTML = newTitle;
+		*/
+		}
+	</script>
+  </head>
+  <body>
+    <header>
+      <h1>Birds Gallery</h1>
+      <button onclick="toggleTheme()">Toggle Theme</button>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <form>
+        <input type="text" name="user_name" placeholder="Enter your name!">
+        <button onclick="applyName()" type="submit">Apply!</button>
+      </form>
+    </nav>
+    <main>
+      <section>
+        <h2>Birds Gallery</h2>
+        <div class="gallery">
+          <img id="bird-image" src="http://www.outgrabe.net/bird00.jpg" alt="Pardalote">
+          <p id="bird-description">Pardalote by fir002 (CC-by-NC)</p>
+        </div>
+        <div class="buttons">
+          <button onclick="changeImage('http://www.outgrabe.net/bird00.jpg', 'Pardalote by fir002 (CC-by-NC)')">Pardalote</button>
+          <button onclick="changeImage('http://www.outgrabe.net/bird01.jpg', 'Purple swamp hen by Toby Hudson (CC-by-SA)')">Purple Swamp</button>
+          <button onclick="changeImage('http://www.outgrabe.net/bird02.jpg', 'White-headed Stilt by JJ Harrison (CC-by-SA)')">White-headed Stilt</button>
+          <button onclick="changeImage('http://www.outgrabe.net/bird03.jpg', 'Inland Thornbill by Peter Jacobs (CC-by-SA)')">Inland Thornbill</button>
+          <button onclick="changeImage('http://www.outgrabe.net/bird04.jpg', 'Rose Robin by JJ Harrison (CC-by-SA)')">Rose Robin</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 by Yishu WANG</p>
+    </footer>
+  </body>
+</html>
